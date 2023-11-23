@@ -1,28 +1,114 @@
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/inicialStyle.css">
-    <title>Quiz</title>
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .caixa{
+            width: 811px;
+            height: 600px;
+            border: 1px solid rgba(0, 0, 0, 0.50);
+            background: #FBFBFB;
+        }
+        .top{
+            height: 42px;
+            padding: 10px;
+            border-bottom: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+        }
+        .top p{
+            width: 91px;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        /* area das perguntas */
+        .areaP{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .caixa h1 {
+            width: 409px;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .resp {
+            width: 417px;
+            border-radius: 5px;
+            background: #66D7FB;
+            padding: 5px;
+            margin-top: 20px;
+            border: none;
+        }
+        .btn{
+            width: 124px;
+            height: 24px;
+            border-radius: 5px;
+            background-color: #66D7FB;
+            margin-top: 20px; 
+        }
+        /* INICIAR QUIZ */
+        .iniciarQuiz{
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #iniciar {
+            display: block;
+            width: 124px;
+            height: 24px;
+            border-radius: 5px;
+            background-color: #66D7FB;
+            margin-top: 20px;
+            border: none;
+        }
+        /* respostas DIV */
+        #respostas {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div id="box">
-            <h1 id="titulo">Quiz informativo sobre Diabetes</h1>
-            <a href="assets/paginas/indexs.html">
-                <button class="botoes" onclick="startQuiz()">Iniciar</button>
-            </a>
-            <a href="assets/paginas/creditos.html">
-                <button class="botoes">Creditos</button>
-            </a>
-            <img id="logo" src="assets/img/ages1.png" alt="logo">
-
+    <div class="caixa">
+        <div class="top">
+            <p id="pontos">Pontuação: 00</p>
+            <p id="numeroPergunta">N° pergunta</p>
+            <p id="tempoPergunta"></p>
         </div>
-        
+
+        <div class="iniciarQuiz" id="IniciaQuiz">
+            <h1>QUIZ SOBRE A CANDIDIASE</h1>
+            <button id="iniciar" onclick="quiz()">INICIAR QUIZ</button>
+        </div>
+
+
+
+        <div class="areaP" id="LocalPergunta">
+            <h1 id="pergunta">PERGUNTA</h1>
+            <div id="respostas">
+
+            </div>
+
+            <button id="btn" class="btn">Próximo</button>
+        </div>
     </div>
-    
-    <script src="assets/js/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
