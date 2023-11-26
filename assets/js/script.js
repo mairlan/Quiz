@@ -110,12 +110,11 @@ function showQuestion(){
         // chama a variavel para criar com filho da DIV "answer-buttons"
 
         if(currentQuestion.VF == 'false'){
-            answerButtons.appendChild(butao);
-            butao.setAttribute("type", 'button');
-            butao.classList.add("btn");
-            butao.appendChild(paragrafo);
-            paragrafo.innerHTML = answer.text;
-            paragrafo.classList.add("p-answer");
+            answerButtons.appendChild(button);
+            button.setAttribute("type", 'button');
+            button.setAttribute("value", answer.text);
+            button.classList.add("btn");
+            paragrafo.style.display = "none"
         }else{
             answerButtons.appendChild(div);
             div.classList.add("alinhar");
@@ -125,15 +124,16 @@ function showQuestion(){
             div.appendChild(paragrafo);
             paragrafo.classList.add("paragrafo");
             paragrafo.innerHTML = answer.text;
+
         }
-        // verifica se clicou na resposta correta
+        
         if(answer.correct){
             // se sim, define o valor como correto
             button.dataset.correct = answer.correct;
         }
-        
         // adiciona um evento ao botão e chama a função selectAnswer
-        button.addEventListener("click", selectAnswer);
+        butao.addEventListener("click", selectAnswer);
+        button.addEventListener('click', selectAnswer);
     });
 }
 
@@ -157,7 +157,7 @@ function selectAnswer(e){
         selectedBtn.classList.add("correct");
         // aumenta a variavel da pontuação
         score += 100;
-        pontos.innerHTML = "Pontuação: " + score;
+        pontos.innerHTML = "pontos: " + score;
     }else{
         // coloca a class="incorrect" na alternativa
         selectedBtn.classList.add("incorrect");

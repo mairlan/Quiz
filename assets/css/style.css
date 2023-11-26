@@ -15,6 +15,7 @@ body {
     height: 600px;
     border: 1px solid rgba(0, 0, 0, 0.50);
     background: #FBFBFB;
+    background-image: url(./../img/fundo.png);
 }
 .top{
     height: 42px;
@@ -28,6 +29,13 @@ body {
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    width: 80px;
+    height: 20px;
+    background-color: #66D7FB;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* area das perguntas */
 .quiz{
@@ -37,12 +45,21 @@ body {
     flex-direction: column;
 }
 .caixa h1 {
-    width: 409px;
-    color: #000;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-top: 60px;
     text-align: center;
+
+}
+.center{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+#header{
+    width: 80%;
+    background-color: white;
 }
 .resp {
     width: 417px;
@@ -53,11 +70,12 @@ body {
     border: none;
 }
 .btn{
-    width: 417px;
+    width: 350px;
     height: 50px;
     border-radius: 5px;
     background-color: #66D7FB;
     margin-top: 10px;
+    overflow-x: auto;
 }
 .p-answer {
     margin: 0;
@@ -67,7 +85,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #954a4a;
+    background-color: #ffffff;
 }
 .btn-1{
     width: 80px;
@@ -106,19 +124,55 @@ body {
     height: 100px;
 }
 
-/* DICA */
-
-.hint {
-    position: absolute;
-    z-index: 5;
-}
-
 /* checkbox */
 .alinhar {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 550px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #66D7FB;
+    margin-top: 10px;
 }
 .paragrafo {
     width: 400px;
+}
+
+@media (max-width: 480px){
+    .container {
+        width: 300px;
+    }
+    .caixa {
+        width: 300px;
+    }
+    .center {
+        height: 100px;
+    }
+    .question {
+        height: 100px;
+        font-size: 12px;
+    }
+    .btn{
+        width: 250px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 799px){
+    .container {
+        width: 400px;
+    }
+    .caixa {
+        width: 500px;
+    }
+    .center {
+        height: 150px;
+    }
+    .question {
+        height: 100px;
+        font-size: 15px;
+    }
+    .btn{
+        width: 350px;
+    }
 }
