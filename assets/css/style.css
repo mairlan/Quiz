@@ -60,6 +60,10 @@ body {
     background-color: #66D7FB;
     margin-top: 10px;
 }
+.btn-check {
+    color: black;
+}
+
 .btn:hover {
     background-color: #954a4a;
 }
@@ -105,4 +109,14 @@ body {
 .hint {
     position: absolute;
     z-index: 5;
+}
+
+/* checkbox */
+.alinhar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.paragrafo {
+    width: 400px;
 }

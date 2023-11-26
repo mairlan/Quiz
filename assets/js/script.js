@@ -2,7 +2,7 @@ const questions = [
     {
         question : "A candidíase oral, ou candidose, é uma infecção fúngica. Exibe uma variedade de padrões clínicos, e a mais bem reconhecida é Candidíase pseudomembranosa (ou sapinho). As características da apresentação dessa doença são:", 
         hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
-        VF    : false,
+        VF    : 'false',
         answers  : [
             { text: "A) vesículas avermelhadas, localizadas na região dos lábios e palato.", correct : false},
             { text: "B) placas brancas não destacáveis, localizadas na mucosa jugal anterior.", correct : false},
@@ -14,7 +14,7 @@ const questions = [
     {
         question : "Qual medicamento é o tratamento para candidíase?", 
         hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
-        VF    : false,
+        VF    : 'false',
         answers  : [
             { text: "A) Anti-inflamatório", correct : false},
             { text: "B) Antifúngico", correct : true},
@@ -25,7 +25,7 @@ const questions = [
     {
         question : "Sobre os sintomas da candidíase oral, marque verdadeiro ou falso:", 
         hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
-        VF    : true,
+        VF    : 'true',
         answers  : [
             { text: "Mau hálito ou secura", correct : true},
             { text: "Não tem sintomas visíveis", correct : false},
@@ -38,7 +38,7 @@ const questions = [
     {
         question : "A candidíase oral pode ser diagnóstica por quais profissionais?", 
         hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
-        VF    : false,
+        VF    : 'false',
         answers  : [
             { text: "A) Clínico geral e farmacêutico", correct : false},
             { text: "B) Somente um farmacêutico", correct : true},
@@ -49,7 +49,7 @@ const questions = [
     {
         question : "As infecções da candidíase oral podem acontecer em grupos específicos. Portanto, pode-se afirmar que existe um grande leque de fatores predisponentes e que podem, até mesmo, acontecer mutuamente. Dessa forma, quais pacientes dos seguintes grupos estão mais vulneráveis? Assinale Verdadeiro ou Falso", 
         hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
-        VF    : true,
+        VF    : 'true',
         answers  : [
             { text: "Pessoas com HIV/AIDS", correct : true},
             { text: "Imaturidade imunológica da infância", correct : true},
@@ -77,7 +77,7 @@ const hint = document.getElementById("hint");
 const hintBtn = document.getElementById("btnh");
 // 
 const footer = document.getElementById("footer");
-
+// espaço onde ficara os pontos no HTML
 const pontos = document.getElementById("score");
 
 // variaveris do index da questão
@@ -90,12 +90,11 @@ function startQuiz(){
     score = 0;
     // nome do botão de proxima pergunta
     nextButton.innerHTML = "Proxima";
-    shuffle(questions);
+    //shuffle(questions);
     showQuestion();
 };
 function showQuestion(){
     resetState();
-    // createImg();
     // variavel para armazenar a array com as questões
     let currentQuestion = questions[currentQuestionIndex];
     // variavel para adicionar mais 1 numero no index do array
@@ -107,13 +106,30 @@ function showQuestion(){
     // para cada resposta no objeto
     currentQuestion.answers.forEach(answer => {
         // variavel que cria um botão dentro do HTML
-        const button = document.createElement("button")
+        const button = document.createElement("input");
+        const paragrafo = document.createElement("p");
+        const div = document.createElement("div");
         //colocar as Alternativas nos botões
-        button.innerHTML = answer.text;
-        //define as classes dos botões como "btn"
-        button.classList.add("btn");
+        //button.innerHTML = answer.text;
         // chama a variavel para criar com filho da DIV "answer-buttons"
-        answerButtons.appendChild(button);
+
+        if(currentQuestion.VF == 'false'){
+            answerButtons.appendChild(button);
+            button.setAttribute("type", 'button');
+            button.setAttribute("value", answer.text);
+            button.classList.add("btn");
+            paragrafo.style.display = "none"
+        }else{
+            answerButtons.appendChild(div);
+            div.classList.add("alinhar");
+            div.appendChild(button);
+            button.setAttribute("type", "checkbox");
+            button.classList.add("btn-check");
+            div.appendChild(paragrafo);
+            paragrafo.classList.add("paragrafo");
+            paragrafo.innerHTML = answer.text;
+
+        }
         // verifica se clicou na resposta correta
         if(answer.correct){
             // se sim, define o valor como correto
@@ -127,13 +143,13 @@ function showQuestion(){
 
 function resetState(){
     // define o display como nenhum(botão desaparece)
-    nextButton.style.display = "none";
+    //nextButton.style.display = "none";
     // remove os botões antigos para que possa ser substituidos pelos novos com as alternativas
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-
+// MUDAR ESSE FUNÇÃO PARA QUANDO CLICAR NO BOTAO DE "PROXIMO" ELE VERIFICAR SE ESTA CORRETO
 function selectAnswer(e){
     // variavel para receber o valor de qual botão foi clicado
     const selectedBtn = e.target;
@@ -170,7 +186,6 @@ function showScore(){
     nextButton.innerHTML = "Jogar novamente";
     // define o display do botão "proximo" como block
     nextButton.style.display = "block";
-    imagen.style.display = "none"
 }
 // ao segurar o botão de proximo
 function handleNextButton(){
