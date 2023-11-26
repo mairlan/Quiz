@@ -37,7 +37,7 @@ const questions = [
         VF    : 'false',
         answers  : [
             { text: "A) Clínico geral e farmacêutico", correct : false},
-            { text: "B) Somente um farmacêutico", correct : true},
+            { text: "B) Somente um farmacêutico", correct : false},
             { text: "C) Clínico geral, dentista ou pediatra no caso de crianças", correct : true},
             { text: "D) Apenas o Clínico geral", correct : false},
         ]

@@ -17,7 +17,6 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        background-image: url(../img/imagem.png);
         margin: 100px;
         height: 500px;
         width: 350px;
