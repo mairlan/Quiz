@@ -1,7 +1,6 @@
 const questions = [
     {
         question : "A candidíase oral, ou candidose, é uma infecção fúngica. Exibe uma variedade de padrões clínicos, e a mais bem reconhecida é Candidíase pseudomembranosa (ou sapinho). As características da apresentação dessa doença são:", 
-        hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
         VF    : 'false',
         answers  : [
             { text: "A) vesículas avermelhadas, localizadas na região dos lábios e palato.", correct : false},
@@ -13,7 +12,6 @@ const questions = [
     },
     {
         question : "Qual medicamento é o tratamento para candidíase?", 
-        hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
         VF    : 'false',
         answers  : [
             { text: "A) Anti-inflamatório", correct : false},
@@ -24,7 +22,6 @@ const questions = [
     },
     {
         question : "Sobre os sintomas da candidíase oral, marque verdadeiro ou falso:", 
-        hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
         VF    : 'true',
         answers  : [
             { text: "Mau hálito ou secura", correct : true},
@@ -37,7 +34,6 @@ const questions = [
     },
     {
         question : "A candidíase oral pode ser diagnóstica por quais profissionais?", 
-        hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
         VF    : 'false',
         answers  : [
             { text: "A) Clínico geral e farmacêutico", correct : false},
@@ -48,7 +44,6 @@ const questions = [
     },
     {
         question : "As infecções da candidíase oral podem acontecer em grupos específicos. Portanto, pode-se afirmar que existe um grande leque de fatores predisponentes e que podem, até mesmo, acontecer mutuamente. Dessa forma, quais pacientes dos seguintes grupos estão mais vulneráveis? Assinale Verdadeiro ou Falso", 
-        hint    : "Este teste avalia como o corpo processa a glicose após a ingestão de uma quantidade padronizada de açúcar.",
         VF    : 'true',
         answers  : [
             { text: "Pessoas com HIV/AIDS", correct : true},
@@ -106,6 +101,7 @@ function showQuestion(){
     // para cada resposta no objeto
     currentQuestion.answers.forEach(answer => {
         // variavel que cria um botão dentro do HTML
+        const butao = document.createElement("button");
         const button = document.createElement("input");
         const paragrafo = document.createElement("p");
         const div = document.createElement("div");
@@ -114,11 +110,12 @@ function showQuestion(){
         // chama a variavel para criar com filho da DIV "answer-buttons"
 
         if(currentQuestion.VF == 'false'){
-            answerButtons.appendChild(button);
-            button.setAttribute("type", 'button');
-            button.setAttribute("value", answer.text);
-            button.classList.add("btn");
-            paragrafo.style.display = "none"
+            answerButtons.appendChild(butao);
+            butao.setAttribute("type", 'button');
+            butao.classList.add("btn");
+            butao.appendChild(paragrafo);
+            paragrafo.innerHTML = answer.text;
+            paragrafo.classList.add("p-answer");
         }else{
             answerButtons.appendChild(div);
             div.classList.add("alinhar");
@@ -128,7 +125,6 @@ function showQuestion(){
             div.appendChild(paragrafo);
             paragrafo.classList.add("paragrafo");
             paragrafo.innerHTML = answer.text;
-
         }
         // verifica se clicou na resposta correta
         if(answer.correct){
