@@ -145,16 +145,31 @@ body {
     }
     .caixa {
         width: 300px;
+        height: auto;
+        padding: 10px;
     }
     .center {
-        height: 100px;
+        height: auto;
     }
     .question {
-        height: 100px;
         font-size: 12px;
+        padding: 10px;
     }
     .btn{
         width: 250px;
+    }
+    .alinhar {
+        width: 260px;
+        height: 50px;
+
+    }
+    .alinhar p {
+        font-size: 10.5px;
+    }
+    .btn-check {
+        width: 30px;
+        height: 30px;
+        color: black;
     }
 }
 
