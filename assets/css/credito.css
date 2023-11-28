@@ -8,17 +8,18 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    background: #56a5eb;
+    align-items: center;
+    background: #133942;
 
 }
 .box-cred {
-    width: 800px;
-    background: #56a5eb;
+    width: 739px;
+    height: 521.321px;
     box-shadow: 0px 8px 10px rgba(0, 0, 0, .5);
     display: flex;
-    background: #56a5eb;
+    background: #00B8B0;
     align-items: center;
-    border-radius: 3%;
+    border-radius: 5px;
 }
 .div-1 {
     display: flex;
@@ -30,8 +31,8 @@ body {
 }
 #botao-cred{
     font-size: 1.8rem;
-    padding: 10px 0px;
-    width: 100px;
+    width: 134px;
+    height: 45px;
     text-align: center;
     border: 0.1rem solid #56a5eb;
     margin-bottom: 20px;
@@ -39,21 +40,21 @@ body {
     color: #feffff;
     background: #56a5eb;
     border-radius: 5%;
-    background: rgba(102, 53, 155, 0.877);
+    background: #66D7FB;
 }
 #botao-cred:hover{
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 #56a5eb;
+    box-shadow: 0 0.4rem 1.4rem 0 #4296df;
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
 
 #logo{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 680px) {
     .container-cred{
         height: 100vh;
     }
@@ -62,5 +63,13 @@ body {
         display: flex;
         flex-direction: column;
     }
-
+    #logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+@media (max-width: 480px) {
+    #logo {
+        display: none;
+    }
 }
