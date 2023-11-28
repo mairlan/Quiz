@@ -193,4 +193,17 @@ body {
     .btn{
         width: 350px;
     }
+    .alinhar {
+        width: 360px;
+        height: 50px;
+
+    }
+    .alinhar p {
+        font-size: 10.5px;
+    }
+    .btn-check {
+        width: 30px;
+        height: 30px;
+        color: black;
+    }
 }
