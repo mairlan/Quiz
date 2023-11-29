@@ -22,23 +22,29 @@ body {
 }
 .top{
     height: 42px;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
 .top p{
-    width: 91px;
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    width: 80px;
-    height: 20px;
+
     background-color: #66D7FB;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+}
+.titu {
+    width: 123px;
+}
+.pontos {
+    width: 80px;
+    height: 20px;
 }
 /* area das perguntas */
 .quiz{
@@ -171,6 +177,13 @@ body {
         width: 30px;
         height: 30px;
         color: black;
+    }
+    .titu{
+        width: 80px;
+        height: 40px;
+        text-align: center;
+        padding: 5px;
+        margin: 0px;
     }
 }
 
