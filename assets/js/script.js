@@ -21,15 +21,13 @@ const questions = [
         ]
     },
     {
-        question : "Sobre os sintomas da candidíase oral, marque verdadeiro ou falso:", 
-        VF    : 'true',
+        question : "Sobre os sintomas da candidíase oral, Selecione uma alternativa:", 
+        VF    : 'false',
         answers  : [
-            { text: "Mau hálito ou secura", correct : true},
+            { text: "Mau hálito, secura e febre", correct : false},
             { text: "Não tem sintomas visíveis", correct : false},
             { text: "A candidíase, mais conhecida como “sapinho” provoca lesões brancas na língua ou na parte interna das bochechas.", correct : true},
             { text: "Dores e amolecimento nos dentes, e na gengiva ", correct : false},
-            { text: "Lesões avermelhadas como aftas", correct : true},
-            { text: "Anormalidade no paladar, dificuldade em engolir, lesão ou vermelhidão", correct : true},
         ]
     },
     {
@@ -43,13 +41,13 @@ const questions = [
         ]
     },
     {
-        question : "As infecções da candidíase oral podem acontecer em grupos específicos. Portanto, pode-se afirmar que existe um grande leque de fatores predisponentes e que podem, até mesmo, acontecer mutuamente. Dessa forma, quais pacientes dos seguintes grupos estão mais vulneráveis? Assinale Verdadeiro ou Falso", 
-        VF    : 'true',
+        question : "As infecções da candidíase oral podem acontecer em grupos específicos. Portanto, pode-se afirmar que existe um grande leque de fatores predisponentes e que podem, até mesmo, acontecer mutuamente. Dessa forma, quais pacientes dos seguintes grupos estão mais vulneráveis? Assinale a INCORRETA", 
+        VF    : 'false',
         answers  : [
-            { text: "Pessoas com HIV/AIDS", correct : true},
-            { text: "Imaturidade imunológica da infância", correct : true},
-            { text: "Pessoas com uma saúde bucal em dias", correct : false},
-            { text: "Pessoas com higiene precária", correct : true},
+            { text: "Pessoas com HIV/AIDS", correct : false},
+            { text: "Imaturidade imunológica da infância", correct : false},
+            { text: "Pessoas com uma saúde bucal em dia", correct : true},
+            { text: "Pessoas com higiene precária", correct : false},
         ]
     },
 ];
@@ -139,7 +137,7 @@ function showQuestion(){
 
 function resetState(){
     // define o display como nenhum(botão desaparece)
-    //nextButton.style.display = "none";
+    nextButton.style.display = "none";
     // remove os botões antigos para que possa ser substituidos pelos novos com as alternativas
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
