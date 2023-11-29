@@ -72,6 +72,7 @@ const hintBtn = document.getElementById("btnh");
 const footer = document.getElementById("footer");
 // espaço onde ficara os pontos no HTML
 const pontos = document.getElementById("score");
+const button = document.createElement("input");
 
 // variaveris do index da questão
 let currentQuestionIndex = 0;
@@ -84,6 +85,7 @@ function startQuiz(){
     // nome do botão de proxima pergunta
     nextButton.innerHTML = "Proxima";
     //shuffle(questions);
+    pontos.innerHTML = "pontos: " + score;
     showQuestion();
 };
 function showQuestion(){
@@ -128,6 +130,8 @@ function showQuestion(){
         if(answer.correct){
             // se sim, define o valor como correto
             button.dataset.correct = answer.correct;
+        }else{
+            button.dataset.correct = answer.correct;
         }
         // adiciona um evento ao botão e chama a função selectAnswer
         butao.addEventListener("click", selectAnswer);
@@ -138,6 +142,7 @@ function showQuestion(){
 function resetState(){
     // define o display como nenhum(botão desaparece)
     nextButton.style.display = "none";
+
     // remove os botões antigos para que possa ser substituidos pelos novos com as alternativas
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
@@ -150,21 +155,25 @@ function selectAnswer(e){
     // variavel para receber o valor do botão que for "true"
     const isCorrect = selectedBtn.dataset.correct === "true";
     // se o valor for "true", ira ser colocado a class="correct" do css
+    let currentQuestion = questions[currentQuestionIndex];
     if(isCorrect){
         // adiciona a class="correct" a alternativa
         selectedBtn.classList.add("correct");
         // aumenta a variavel da pontuação
         score += 100;
         pontos.innerHTML = "pontos: " + score;
-    }else{
-        // coloca a class="incorrect" na alternativa
-        selectedBtn.classList.add("incorrect");
+
     }
+
     Array.from(answerButtons.children).forEach(button => {
         // vai verificar qual é o botão que tem o valor "true" e definir ele como "correct"
         if(button.dataset.correct === "true"){
             button.classList.add("correct");
         }
+        if(button.dataset.correct === "false"){
+            button.classList.add("incorrect");
+        }
+
         // desabilita os botões não podendo clickar neles
         button.disabled = true;
     });
